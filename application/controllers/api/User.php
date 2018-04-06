@@ -7,8 +7,8 @@ class User extends REST_Controller {
 
 	function __construct() {
 		header('Access-Control-Allow-Origin: *');
-		header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-		header('Access-Control-Allow-Headers: authorization, content-type, x-requested-with');
+		header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, OPTIONS');
+		header('Access-Control-Allow-Headers: authorization, content-type, x-requested-with, Access-Control-Allow-Methods');
 		if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 			header('HTTP/1.1 204 No Content');
 		}
@@ -16,6 +16,7 @@ class User extends REST_Controller {
 		parent::__construct();
 
 		$this->load->model("user_model");
+		$this->load->model("upload_model");
 	}
 
 	public function index_options() {
@@ -42,6 +43,12 @@ class User extends REST_Controller {
 			'username' => $this->post('username'), 
 			'password' => $this->post('password')
 		);
+		if($array['gender'] == "female") {
+			$array['image'] = "https://stark-refuge-28510.herokuapp.com/images/user_female.png";
+		}
+		else {
+			$array['image'] = "https://stark-refuge-28510.herokuapp.com/images/user_male.png";
+		}
 
 		$insert = $this->user_model->add($array);
 		if($insert) return $this->response(array('message' => "User successfully created"), REST_Controller::HTTP_CREATED);

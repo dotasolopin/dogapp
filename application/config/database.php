@@ -73,6 +73,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+
+	// 'hostname' => 'sql12.freemysqlhosting.net',
+	// 'username' => 'sql12231039',
+	// 'password' => 'GgccmQRJz8',
+	// 'database' => 'sql12231039',
+
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'sql12.freemysqlhosting.net',

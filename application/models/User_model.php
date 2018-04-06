@@ -10,7 +10,7 @@ class User_model extends CI_Model {
 	public function get($id='') {
 		if($id != '') $this->db->where('id', $id);
 
-		return $this->db->select('id, firstname, lastname, address, gender, status, username')
+		return $this->db->select('id, firstname, lastname, address, gender, status, username, image')
 						->get('user')
 						->result_array();
 	}

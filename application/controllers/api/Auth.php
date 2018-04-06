@@ -8,8 +8,8 @@ class Auth extends REST_Controller {
 	function __construct() {
 
 		header('Access-Control-Allow-Origin: *');
-		header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-		header('Access-Control-Allow-Headers: authorization, content-type, x-requested-with');
+		header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, OPTIONS');
+		header('Access-Control-Allow-Headers: authorization, content-type, x-requested-with, Access-Control-Allow-Methods');
 		if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 			header('HTTP/1.1 204 No Content');
 		}

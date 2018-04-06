@@ -71,6 +71,17 @@ class Dog_model extends CI_Model {
 		return false;
 	}
 
+	public function delete_location($id) {
+		$this->db->where('id', $id);
+		$this->db->delete('locations');
+
+		if($this->db->affected_rows() > 0) {
+			return true;
+		}
+		return false;
+
+	}
+
 }
 
 
