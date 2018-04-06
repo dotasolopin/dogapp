@@ -10,7 +10,7 @@ class Auth_model extends CI_Model {
 	public function auth($details) {
 		$details['password'] = hash("sha512", $details['password']);
 
-		$query = $this->db->select('id, firstname, lastname, address, gender, status, username')
+		$query = $this->db->select('id, firstname, lastname, address, gender, status, username, image')
 							->where($details)
 							->get('user');
 
