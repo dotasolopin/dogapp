@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 
 	// 'hostname' => 'sql12.freemysqlhosting.net',
-	// 'username' => 'sql12231039',
-	// 'password' => 'GgccmQRJz8',
-	// 'database' => 'sql12231039',
+	// 'username' => 'sql12232996',
+	// 'password' => 'RizuJMuzTC',
+	// 'database' => 'sql12232996',
 
 
 	// 'hostname' => 'localhost',
@@ -88,9 +88,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'sql12.freemysqlhosting.net',
-	'username' => 'sql12231039',
-	'password' => 'GgccmQRJz8',
-	'database' => 'sql12231039',
+	'username' => 'sql12232996',
+	'password' => 'RizuJMuzTC',
+	'database' => 'sql12232996',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
