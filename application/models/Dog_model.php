@@ -52,6 +52,17 @@ class Dog_model extends CI_Model {
 		return false;
 	}
 
+	public function delete_location($id) {
+		$this->db->where('id', $id);
+		$this->db->delete('locations');
+
+		if($this->db->affected_rows() > 0) {
+			return true;
+		}
+		return false;
+
+	}
+
 // for dog temperature
 	public function get_temperature($dogid = '', $id = '') {
 		if($dogid != '') $this->db->where('dogid', $dogid);
@@ -71,9 +82,9 @@ class Dog_model extends CI_Model {
 		return false;
 	}
 
-	public function delete_location($id) {
+	public function delete_temperature($id) {
 		$this->db->where('id', $id);
-		$this->db->delete('locations');
+		$this->db->delete('temperatures');
 
 		if($this->db->affected_rows() > 0) {
 			return true;

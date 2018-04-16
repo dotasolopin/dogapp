@@ -41,4 +41,12 @@ class Temperature extends REST_Controller {
 		if($insert) return $this->response($insert, REST_Controller::HTTP_CREATED);
 		return $this->response(array('message' => "Unable to save temperature"), REST_Controller::HTTP_BAD_REQUEST);
 	}
+
+	public function index_delete($id) {
+
+		$delete = $this->dog_model->delete_temperature($id);
+		if($delete) return $this->response($delete, REST_Controller::HTTP_OK);
+		return $this->response(array('message' => "Unable to delete temperature", "id" => $id), REST_Controller::HTTP_BAD_REQUEST);
+
+	}
 }

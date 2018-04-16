@@ -79,6 +79,12 @@ $query_builder = TRUE;
 	// 'password' => 'GgccmQRJz8',
 	// 'database' => 'sql12231039',
 
+
+	// 'hostname' => 'localhost',
+	// 'username' => 'root',
+	// 'password' => '',
+	// 'database' => 'dogapp',
+
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'sql12.freemysqlhosting.net',
