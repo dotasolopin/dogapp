@@ -38,9 +38,13 @@ class Dog_model extends CI_Model {
 		if($dogid != '') $this->db->where('dogid', $dogid);
 		if($id != '') $this->db->where('id', $id);
 
-		return $this->db->select('*')
-						->get('locations')
-						->result_array();
+		$data = $this->db->select('*')
+				->get('locations')
+				->result_array();
+		for ($i=0; $i < count($data); $i++) {
+			$data[$i]['tracklets'] = $this->get_tracklets($data[$i]['id']);
+		}
+		return $data;
 	}
 
 	public function add_location($data) {
@@ -50,6 +54,23 @@ class Dog_model extends CI_Model {
 			return $data;
 		}
 		return false;
+	}
+
+	public function save_tracklets($id, $data) {
+		foreach ($data as $key => $value) {
+			$data[$key]['location_id'] = $id;
+		}
+		$this->db->insert_batch('tracklet', $data);
+		if($this->db->affected_rows() > 0) {
+			return $data;
+		}
+		return [];
+	}
+
+	public function get_tracklets($id) {
+		return $this->db->select('*')
+				->get_where('tracklet', array('location_id' => $id))
+				->result_array();
 	}
 
 	public function delete_location($id) {

@@ -34,7 +34,8 @@ class Temperature extends REST_Controller {
 	public function index_post() {
 		$array = array(
 			'dogid' => $this->post('dogid'),
-			'temperature' => $this->post('temperature')
+			'temperature' => $this->post('temperature'),
+			'client_time' => $this->post('time')
 		);
 
 		$insert = $this->dog_model->add_temperature($array);

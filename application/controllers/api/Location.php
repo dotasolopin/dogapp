@@ -35,11 +35,16 @@ class Location extends REST_Controller {
 		$array = array(
 			'dogid' => $this->post('dogid'),
 			'longitude' => $this->post('longitude'),
-			'latitude' => $this->post('latitude')
+			'latitude' => $this->post('latitude'),
+			'client_time' => $this->post('time'),
+			'address' => $this->post('address')
 		);
 
 		$insert = $this->dog_model->add_location($array);
-		if($insert) return $this->response($insert, REST_Controller::HTTP_CREATED);
+		if($insert) {
+			$insert['tracklets'] = $this->dog_model->save_tracklets($insert['id'], $this->post('tracklets'));
+			return $this->response($insert, REST_Controller::HTTP_CREATED);
+		}
 		return $this->response(array('message' => "Unable to save location"), REST_Controller::HTTP_BAD_REQUEST);
 	}
 
