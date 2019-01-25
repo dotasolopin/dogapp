@@ -87,10 +87,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'sql12.freemysqlhosting.net',
-	'username' => 'sql12255262',
-	'password' => 'TVUAtm66kD',
-	'database' => 'sql12255262',
+	'hostname' => 'db4free.net',
+	'username' => 'dogapp',
+	'password' => 'v3uGFQNNKstFWM6',
+	'database' => 'dogsuit',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
